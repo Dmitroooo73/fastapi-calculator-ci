@@ -1,0 +1,14 @@
+image: python:3.11
+
+before_script:
+  - python --version
+  - pip install virtualenv
+  - virtualenv venv
+  - . venv/bin/activate
+  - pip install -r src/requirements.txt
+
+test:
+  script:
+    - pytest src/lab2-test.py
+    - flake8 src
+    - mypy src
